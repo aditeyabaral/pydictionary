@@ -14,14 +14,14 @@ def accept():
         if check == False:
             otherwords = d.suggest(word)
             if len(otherwords) == 0:
-                print ("Word not found in dictionary.")
+                print("Word not found in dictionary.")
                 choice = input("Would you like to add it to the dictionary? ")
                 if choice.upper() == 'YES':
                     d.add_to_pwl(word)
                     flag = False
                     break
             else:
-                print ("Did you mean", otherwords[0]+'?')
+                print("Did you mean", otherwords[0]+'?')
 def results(word):
     syn = wordnet.synsets(word)
     dform  = {'n':'noun','v':'verb','a':'adjective','r':'adverb','s':'adjective satellite'}
@@ -30,12 +30,12 @@ def results(word):
     for i in syn[:5]:
         ctr2 = 97
         definition, examples,form = i.definition(), i.examples(),i.pos()
-        print (str(ctr1)+'.',end = "")
-        print (dform[form], '-', word)
-        print ("Definition :", definition.capitalize()+'.')
+        print(str(ctr1)+'.',end = "")
+        print(dform[form], '-', word)
+        print("Definition :", definition.capitalize()+'.')
         ctr1+=1
         if len(examples)>0:
-            print ("Usage : ")
+            print("Usage : ")
             for j in examples:
                 print (chr(ctr2)+'.',j.capitalize()+'.')
                 ctr2+=1
@@ -48,16 +48,16 @@ def results(word):
             except:
                 pass
     if len(antonyms)>0:
-        print ("Antonyms : ")
+        print("Antonyms : ")
         for i in antonyms:
-            print (i,end = ",")
+            print(i,end = ",")
     print()
 while True:
     accept()
     if flag == True:
         results(word)
     else:
-        print ("New word has been added to the dictionary.")
+        print("New word has been added to the dictionary.")
     choice = input("\nSearch for another word? ")
     if choice != '1':
         break

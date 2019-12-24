@@ -1,5 +1,5 @@
 from nltk.corpus import wordnet
-import enchant, nltk
+import enchant
 dictionary = enchant.Dict("en_GB")
 
 word = input("Enter word to search : ").strip()

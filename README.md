@@ -4,8 +4,34 @@ PyDictioanry is an offline English dictionary made using Python along with the W
 
 PyDictionary is a complete project, and can be used as a full fledged offline English dictionary. Although limited, it does the same job Google search does when searched with a word.
 
-# Dependencies 
+# How to execute
 
-nltk
+1. Create a virtualenv
 
-enchant
+```
+python -m venv env
+```
+
+1. Activate virtualenv
+
+```
+source env/bin/activate
+```
+
+1. Install dependencies
+
+```
+pip install -r requirements.txt
+```
+
+1. Install dev dependencies (needed for code linting)
+
+```
+pip install -r requirements-dev.txt
+```
+
+1. Run the dictionary with any world
+
+```
+python PyDictionary.py hello
+```

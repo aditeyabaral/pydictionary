@@ -4,8 +4,8 @@ import enchant
 import argparse
 dictionary = enchant.Dict("en_GB")
 
-# Usage python send_telegram_message.py "username, number or id" "message"
-parser = argparse.ArgumentParser(description='search words')
+#command line interface
+parser = argparse.ArgumentParser(description='English offline dictionary', usage='PyDictionary word-to-search')
 parser.add_argument('word', type=str, help='Search word')
 args = parser.parse_args()
 word = args.word.strip()

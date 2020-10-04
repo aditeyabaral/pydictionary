@@ -4,8 +4,11 @@ PyDictioanry is an offline English dictionary made using Python along with the W
 
 PyDictionary is a complete project, and can be used as a full fledged offline English dictionary. Although limited, it does the same job Google search does when searched with a word.
 
-# Dependencies 
+## Dependencies 
+Python dependencies are in requierements.txt to install:
+	`pip install -r requirements.txt`
+Also you will need to install hspell, nuspell, hunspell, libvoikko, aspell and aspell-en packages.
 
-nltk
-
-enchant
+## Usage
+`PyDictionary word-to-search`
+> Example: `PyDictionary pizza`

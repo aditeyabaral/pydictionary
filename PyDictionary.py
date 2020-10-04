@@ -17,18 +17,25 @@ def get_word_from_cli():
 
 
 def check_word(word):
-    """Search a word in dictionary and print its coincidences"""
-    while not dictionary.check(word):
-        otherwords = dictionary.suggest(word)
-        if len(otherwords) == 0:
-            print("Word not found in dictionary.")
-            choice = input("Would you like to add it to the dictionary? ")
-            if choice.upper() == "YES":
-                dictionary.add_to_pwl(word)
-        else:
-            print('Did you mean "' + otherwords[0] + '" ?')
-        word = input("Enter word to search : ").strip()
+    """
+    Check if word exist in dictionary
 
+    If not it will try to make suggestions.
+    """
+    if dictionary.check(word):
+        return word
+    print("Word not found in dictionary.")
+    otherwords = dictionary.suggest(word)
+    if otherwords:
+        choice = input('Did you mean "' + otherwords[0] + '" ?')
+        if choice.upper() == "YES":
+            return otherwords[0]
+    sys.exit(2)
+
+
+def get_records(word):
+    """Search a word in dictionary and print its coincidences"""
+    word = check_word(word)
     syn = wordnet.synsets(word)
     dform = {
         "n": "noun",
@@ -67,5 +74,5 @@ def check_word(word):
 
 if __name__ == "__main__":
     word = get_word_from_cli()
-    result = check_word(word)
-    print(result)
+    records = get_records(word)
+    print(records)

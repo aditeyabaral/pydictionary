@@ -10,7 +10,8 @@ Python dependencies are in requierements.txt to install:
 Also you will need to install hspell, nuspell, hunspell, libvoikko, aspell and aspell-en packages.
 
 ## Usage
-`PyDictionary word-to-search`
+`PyDictionary word-to-search`   
+
 **Example:** 
 ``` 
 ./PyDictionary.py pizza

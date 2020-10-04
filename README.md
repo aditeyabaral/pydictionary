@@ -11,4 +11,9 @@ Also you will need to install hspell, nuspell, hunspell, libvoikko, aspell and a
 
 ## Usage
 `PyDictionary word-to-search`
-> Example: `PyDictionary pizza`
+**Example:** 
+``` 
+./PyDictionary.py pizza
+1.noun - pizza
+Definition : Italian open pie made of thin bread dough spread with a spiced mixture of e.g. tomato sauce and cheese.
+```

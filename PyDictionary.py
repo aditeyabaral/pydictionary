@@ -1,8 +1,14 @@
+#! env/bin/python
 from nltk.corpus import wordnet
 import enchant
+import argparse
 dictionary = enchant.Dict("en_GB")
 
-word = input("Enter word to search : ").strip()
+# Usage python send_telegram_message.py "username, number or id" "message"
+parser = argparse.ArgumentParser(description='search words')
+parser.add_argument('word', type=str, help='Search word')
+args = parser.parse_args()
+word = args.word.strip()
 #check = dictionary.check(word)
 
 while not dictionary.check(word):

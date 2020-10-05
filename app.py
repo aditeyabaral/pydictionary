@@ -4,11 +4,12 @@ from wtforms.validators import DataRequired
 from flask import render_template, redirect,url_for
 from flask import Flask
 from flask_wtf.csrf import CSRFProtect
+from flask_bootstrap import Bootstrap
 from .PyDictionary import web_get_records
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'any secret string'
-
+Bootstrap(app)
 csrf = CSRFProtect(app)
 
 class WordForm(FlaskForm):

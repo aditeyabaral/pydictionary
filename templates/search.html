@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Hi!</h1>
+<p>Enter the word you want to search for</p>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.word.label }}
+        <br> {{ form.word(size=10) }}
+    </p>
+    <p>{{form.submit()}}</p>
+</form>
+{% endblock %}

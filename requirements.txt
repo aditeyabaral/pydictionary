@@ -11,3 +11,4 @@ regex==2020.9.27
 tqdm==4.50.0
 Werkzeug==1.0.1
 WTForms==2.3.3
+Flask-Bootstrap==3.3.7.1

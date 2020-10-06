@@ -8,7 +8,7 @@ from flask_wtf.csrf import CSRFProtect
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
-from pyDictionary import web_get_records, get_suggesstions
+from PyDictionary import web_get_records, get_suggesstions
 
 try:
     nltk.data.find('corpora/wordnet')
@@ -38,33 +38,34 @@ def index():
     word = " "
     if form.validate_on_submit():
         word = form.word.data
-    resp = web_get_records(word)
+        resp = web_get_records(word)
 
-    words = []
-    suggestions = []
+        words = []
+        suggestions = []
 
-    if resp:
-        resp = match_item_number.sub("", resp).strip().split("\n")
-        loop_index = -1
-        match_usage_item_letter = re.compile(r"^\w+\.")
+        if resp:
+            resp = match_item_number.sub("", resp).strip().split("\n")
+            loop_index = -1
+            match_usage_item_letter = re.compile(r"^\w+\.")
 
-        for res in resp:
-            if "-" in  res:
-                pos = res.split("-")
-                words.append({"part_of_speech": pos[0], "value": pos[1]})
-                loop_index += 1
-            elif "Definition" in res:
-                words[loop_index]["definition"] = res.replace("Definition : ", "")
-            elif match_usage_item_letter.search(res):
-                if "usage" not in words[loop_index]:
-                    words[loop_index]["usage"] = []
+            for res in resp:
+                if "-" in  res:
+                    pos = res.split("-")
+                    words.append({"part_of_speech": pos[0], "value": pos[1]})
+                    loop_index += 1
+                elif "Definition" in res:
+                    words[loop_index]["definition"] = res.replace("Definition : ", "")
+                elif match_usage_item_letter.search(res):
+                    if "usage" not in words[loop_index]:
+                        words[loop_index]["usage"] = []
 
-                # words[loop_index]["usage"].append(match_usage_item_letter.sub("", res))
-                words[loop_index]["usage"].append(res)
-    else:
-        suggestions = get_suggesstions(word)
+                    # words[loop_index]["usage"].append(match_usage_item_letter.sub("", res))
+                    words[loop_index]["usage"].append(res)
+        else:
+            suggestions = get_suggesstions(word)
 
-    return render_template("search.html", title="PyDictionary", form=form, resp=words, found = len(words) >= 1, suggestions = suggestions)
+        return render_template("search.html", title="PyDictionary", form=form, resp=words, found = len(words) >= 1, suggestions = suggestions[:5] if len(suggestions)>5 else suggestions)
+    return render_template("search.html", title="PyDictionary", form=form, resp=[], found = True, suggestions = [])
 
 if __name__ == "__main__":
     app.run()

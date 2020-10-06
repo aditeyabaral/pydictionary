@@ -13,7 +13,7 @@ def get_word_from_cli():
     try:
         return sys.argv[1]
     except IndexError:
-        print("ERROR: Bad input. Yo must provide a word!")
+        print("ERROR: Bad input. You must provide a word!")
         print("Correct usage: \033[1m python PyDictionary.py <word> \033[0m")
         sys.exit(2)
 
@@ -48,15 +48,15 @@ def get_records(word):
     }
     ctr1 = 1
     ctr2 = 97
-    for i in syn:
+    for i in syn[:5]:
         ctr2 = 97
         definition, examples, form = i.definition(), i.examples(), i.pos()
-        print(str(ctr1) + ".", end="")
+        print(str(ctr1) + ". ", end="")
         print(dform[form], "-", word)
-        print("Definition :", definition.capitalize() + ".")
+        print("Definition:", definition.capitalize() + ".")
         ctr1 += 1
         if len(examples) > 0:
-            print("Usage : ")
+            print("Usage: ")
             for j in examples:
                 print(chr(ctr2) + ".", j.capitalize() + ".")
                 ctr2 += 1
@@ -119,5 +119,4 @@ def web_get_records(word):
 
 if __name__ == "__main__":
     word = get_word_from_cli()
-    records = get_records(word)
-    print(records)
+    get_records(word)

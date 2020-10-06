@@ -8,7 +8,7 @@ from flask_wtf.csrf import CSRFProtect
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
-from .PyDictionary import web_get_records, get_suggesstions
+from pyDictionary import web_get_records, get_suggesstions
 
 try:
     nltk.data.find('corpora/wordnet')
@@ -52,7 +52,6 @@ def index():
             if "-" in  res:
                 pos = res.split("-")
                 words.append({"part_of_speech": pos[0], "value": pos[1]})
-                is_in_usage = False
                 loop_index += 1
             elif "Definition" in res:
                 words[loop_index]["definition"] = res.replace("Definition : ", "")

@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    background-color: lightblue;
+    color: black;
+    overflow-x: hidden;
+}
+
+.container{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.research,.results{
+    flex-basis: 49%;
+}
+
+.research {
+    background-color: lightseagreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.research .research-title{
+    font-size: 3em;
+}
+
+.research .research-form .input-field{
+    width: 40vw;
+    display: flex;
+}
+
+.research .research-form .input-field .input{
+    flex-basis: 80%;
+    font-family: 'Jost',cursive;
+    border: none;
+    padding-left: .5em;
+    font-size: 2em;
+}
+
+.research .research-form .input-field .input:focus{
+    border: none;
+    outline: none;
+}
+
+.research .research-form .input-field .input-submit{
+    flex: auto;
+    border: none;
+    font-weight: bold;
+    background-color: #0b6a75;
+    color: #ffffff;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.results{
+    padding: 2em 0;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.results .results-content{
+    width: 90%;
+    margin: auto;
+}
+
+.word-result-box {
+    display: flex;
+    padding: 8px 16px;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    flex-direction: column;
+}
+
+.word-result-box p {
+    margin: 6px 0px;
+    text-align: left;
+}
+
+.divider {
+    height: 2px;
+    width: 100%;
+    background: #ccc;
+}
+
+@media all and (max-width: 768px){
+
+    .container{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .results, .research{
+        flex:auto;
+    }
+
+    .research{
+        height: 40vh;
+    }
+
+    .research .research-form .input-field{
+        width: auto;
+    }
+}
+
+@media all and (max-width: 600px){
+
+    .research .research-form{
+        width: 95%;
+        margin: auto;
+    }
+    
+    .research .research-form .input-field{
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .input, .input-submit{
+        flex: auto !important;
+        margin-bottom: .5em;
+    }
+
+    .input{
+        border-radius: 7px;
+    }
+
+    .results{
+        padding-bottom: 3em;
+    }
+}

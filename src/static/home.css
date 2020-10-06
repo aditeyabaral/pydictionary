@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Balsamiq+Sans&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color:lightseagreen;
+}
+
+.container{
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+}
+
+header .heading-title{
+    text-align: center;
+    font-size: 5rem;
+    font-weight: bold;
+    font-family: Tahoma, Verdana, Arial, sans-serif;;
+}
+
+header .heading-content{
+    width: 70%;
+    margin: 0 auto 2em;
+    font-family: 'Balsamiq Sans', cursive;
+    text-align: center;
+}
+
+.input-field{
+    width: 40vw;
+    display: flex;
+    /* height: ; */
+}
+
+.input-field .input{
+    flex-basis: 80%;
+    font-family: 'Anton',cursive;
+    border: none;
+    padding-left: .5em;
+}
+
+.input-field .input:focus{
+    border: none;
+    outline: none;
+}
+
+.input-field .input-submit{
+    flex: auto;
+    height: 100%;
+    border: none;
+    font-weight: bold;
+    background-color: #0b6a75;
+    color: #ffffff;
+    font-size: 1.5em;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+@media all and (max-width: 768px) {
+
+    .container{
+        width: 90%;
+        height: auto;
+    }
+
+    .input-field{
+        width: 60vw;
+        display: flex;
+        /* height: 70px; */
+    }
+
+    .input-field .input{
+        flex-basis: 85%;
+    }
+
+    .input-field .input-submit{
+        flex:auto;
+    }
+
+}
+
+@media all and (max-width: 600px){
+
+    .container{
+        width: 98%;
+        height: auto;
+    }
+
+    header .heading-title{
+        font-size: 3em;
+    }
+
+    header .heading-content{
+        font-size: 1em;
+    }
+}

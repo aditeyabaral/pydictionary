@@ -1,99 +1,17 @@
 <html>
 
 <head>
+  <meta name="description" content="PyDictionary is an offline English dictionary made using Python along with the Wordnet Lexical Database and Enchant Spell Dictionary." />
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   {% if title %}
   <title>{{ title }}</title>
   {% else %}
   <title>PyDictionary</title>
   {% endif %}
-  <style>
-    body {
-      width: 60%;
-      margin: 0 auto;
-      font-family: Tahoma, Verdana, Arial, sans-serif;
-      background-color: lightblue;
-      color: black;
-    }
-
-    div.container4 {
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-right: -50%;
-      transform: translate(-50%, -50%)
-    }
-
-
-    .split {
-      height: 100%;
-      width: 50%;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      overflow-x: hidden;
-      padding-top: 20px;
-    }
-
-
-    .left {
-      left: 0;
-      background-color: lightseagreen;
-    }
-
-    .right {
-      right: 0;
-      background-color: lightcyan;
-    }
-
-
-    .centered1 {
-      position: relative;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
-
-    .centered2 {
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%, 0%);
-      text-align: center;
-    }
-    #submit {
-      color: #fff;
-      font-size: 1.5vw;
-      width: 135px;
-      height: 60px;
-      border: none;
-      margin: 0;
-      padding: 0;
-      background: #0b6a75;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-
-    .word-result-box {
-      display: flex;
-      padding: 8px 16px;
-      background: white;
-      border-radius: 8px;
-      margin-bottom: 16px;
-      flex-direction: column;
-    }
-
-    .word-result-box p {
-      margin: 6px 0px;
-      text-align: left;
-    }
-
-    .divider {
-      height: 2px;
-      width: 100%;
-      background: #ccc;
-    }
-  </style>
+  {% block staticfiles %}
+  {% endblock %}
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
 </head>
 
 <body>

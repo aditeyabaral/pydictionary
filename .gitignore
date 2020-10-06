@@ -129,3 +129,10 @@ dmypy.json
 .pyre/
 
 corpora/
+
+# vscode
+.vscode/
+
+# pipenv 
+Pipfile
+Pipfile.lock

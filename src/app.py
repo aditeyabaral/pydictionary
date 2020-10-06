@@ -8,7 +8,7 @@ from flask_wtf.csrf import CSRFProtect
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
-from pyDictionary import web_get_records
+from pyDictionary import web_get_records, get_suggesstions
 
 try:
     nltk.data.find('corpora/wordnet')
@@ -40,17 +40,11 @@ def index():
         word = form.word.data
     resp = web_get_records(word)
 
-    resp = match_item_number.sub("", resp).strip()
-
-    resp = (
-        resp
-        if resp == "Word not found in dictionary." or word == ""
-        else resp.split("\n")
-    )
-
     words = []
+    suggestions = []
 
-    if "not found" not in resp:
+    if resp:
+        resp = match_item_number.sub("", resp).strip().split("\n")
         loop_index = -1
         match_usage_item_letter = re.compile(r"^\w+\.")
 
@@ -67,8 +61,10 @@ def index():
 
                 # words[loop_index]["usage"].append(match_usage_item_letter.sub("", res))
                 words[loop_index]["usage"].append(res)
+    else:
+        suggestions = get_suggesstions(word)
 
-    return render_template("search.html", title="PyDictionary", form=form, resp=words)
+    return render_template("search.html", title="PyDictionary", form=form, resp=words, found = len(words) >= 1, suggestions = suggestions)
 
 if __name__ == "__main__":
     app.run()

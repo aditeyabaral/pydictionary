@@ -73,10 +73,13 @@ def get_records(word):
         for i in antonyms:
             print(i, end=",")
 
+def get_suggesstions(word):
+    return dictionary.suggest(word)
+
 
 def web_get_records(word):
     if not dictionary.check(word):
-        return "Word not found in dictionary."
+        return None
     resp = ""
     syn = wordnet.synsets(word)
     dform = {

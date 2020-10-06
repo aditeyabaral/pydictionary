@@ -20,9 +20,24 @@
 
 <div class="split right">
     <div class="centered2">
-        {% for para in resp %}
-        <p style="font-size:1w;">{{para}}</p>
-        {% endfor %}
+        {% if resp is iterable and resp is not string %}
+            {% for word in resp %}
+            <div class="word-result-box">
+                <p>{{ word['value'] }}</p>
+                <div class="divider"></div>
+                <p style="color: #699;">Part of Speech: {{ word['part_of_speech'] }}</p>
+                <p>Definition: {{ word['definition'] }}</p>
+                {% if word['usage'] | length > 0 %}
+                    <p>Usage: </p>
+                {% endif %}
+                {% for usage in word['usage'] %}
+                    <p>{{ usage }}</p>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        {% else %}
+            <p style="font-size:1w;">Not found</p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

@@ -10,7 +10,10 @@ from wtforms.validators import DataRequired
 
 from .PyDictionary import web_get_records
 
-nltk.download("wordnet")
+try:
+    nltk.data.find('corpora/wordnet')
+except LookupError:
+    nltk.download("wordnet")
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "any secret string"

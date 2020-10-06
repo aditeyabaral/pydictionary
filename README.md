@@ -4,6 +4,8 @@ PyDictionary is an offline English dictionary made using Python along with the W
 
 PyDictionary is a complete project, and can be used as a full fledged offline English dictionary. Although limited, it does the same job Google search does when searched with a word.
 
+![Flask App UI](img/home.png)
+
 # Setting Up Environment
 
 1. Create and activate virtual environment
@@ -27,15 +29,17 @@ pip install -r requirements-dev.txt
 
 # How to run PyDictionary
 
-1. Runing on Command Line
+## Runing on Command Line
 
 Run the application by passing the search word as an argument.
 
 ```bash
 python3 pyDictionary.py hello
 ```
+![CLI](img/cmd.png)
 
-2. Running Flask App
+## Running Flask App
 ```bash
 flask run
 ```
+![GUI](img/gui.png)

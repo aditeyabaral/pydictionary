@@ -47,7 +47,7 @@ def index():
             match_usage_item_letter = re.compile(r"^\w+\.")
 
             for res in resp:
-                if "-" in res:
+                if "-" in res and " " not in res:
                     pos = res.split("-")
                     words.append({"part_of_speech": pos[0], "value": pos[1]})
                     loop_index += 1

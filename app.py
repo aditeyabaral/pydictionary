@@ -5,7 +5,7 @@ from flask_wtf.csrf import CSRFProtect
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
-from .PyDictionary import web_get_records
+from PyDictionary import web_get_records
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "any secret string"

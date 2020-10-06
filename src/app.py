@@ -1,5 +1,4 @@
 import re
-
 import nltk
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
@@ -7,8 +6,7 @@ from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
-
-from PyDictionary import web_get_records, get_suggesstions
+from utils import web_get_records, get_suggestions
 
 try:
     nltk.data.find('corpora/wordnet')
@@ -49,23 +47,24 @@ def index():
             match_usage_item_letter = re.compile(r"^\w+\.")
 
             for res in resp:
-                if "-" in  res:
+                if "-" in res:
                     pos = res.split("-")
                     words.append({"part_of_speech": pos[0], "value": pos[1]})
                     loop_index += 1
                 elif "Definition" in res:
-                    words[loop_index]["definition"] = res.replace("Definition : ", "")
+                    words[loop_index]["definition"] = res.replace(
+                        "Definition : ", "")
                 elif match_usage_item_letter.search(res):
                     if "usage" not in words[loop_index]:
                         words[loop_index]["usage"] = []
 
-                    # words[loop_index]["usage"].append(match_usage_item_letter.sub("", res))
                     words[loop_index]["usage"].append(res)
         else:
-            suggestions = get_suggesstions(word)
+            suggestions = get_suggestions(word)
 
-        return render_template("search.html", title="PyDictionary", form=form, resp=words, found = len(words) >= 1, suggestions = suggestions[:5] if len(suggestions)>5 else suggestions)
-    return render_template("search.html", title="PyDictionary", form=form, resp=[], found = True, suggestions = [])
+        return render_template("search.html", title="PyDictionary", form=form, resp=words, found=len(words) >= 1, suggestions=suggestions[:5] if len(suggestions) > 5 else suggestions)
+    return render_template("search.html", title="PyDictionary", form=form, resp=[], found=True, suggestions=[])
+
 
 if __name__ == "__main__":
     app.run()

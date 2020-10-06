@@ -27,7 +27,7 @@ pip install -r requirements-dev.txt
 
 # How to run PyDictionary
 
-1. Runing on Command Line
+## Runing on Command Line
 
 Run the application by passing the search word as an argument.
 
@@ -35,7 +35,7 @@ Run the application by passing the search word as an argument.
 python3 pyDictionary.py hello
 ```
 
-2. Running Flask App
+## Running Flask App
 ```bash
 flask run
 ```

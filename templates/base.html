@@ -57,9 +57,8 @@
 
     .centered2 {
       position: absolute;
-      top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, 0%);
       text-align: center;
     }
     #submit {
@@ -70,9 +69,30 @@
       border: none;
       margin: 0;
       padding: 0;
-      background: blue;
+      background: #0b6a75;
+      border-radius: 10px;
+      cursor: pointer;
     }
 
+    .word-result-box {
+      display: flex;
+      padding: 8px 16px;
+      background: white;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      flex-direction: column;
+    }
+
+    .word-result-box p {
+      margin: 6px 0px;
+      text-align: left;
+    }
+
+    .divider {
+      height: 2px;
+      width: 100%;
+      background: #ccc;
+    }
   </style>
 </head>
 

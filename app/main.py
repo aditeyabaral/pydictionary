@@ -8,6 +8,8 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 from utils import web_get_records, get_suggestions
 
+nltk.data.path.append('../nltk_data/')
+
 try:
     nltk.data.find('corpora/wordnet')
 except LookupError:

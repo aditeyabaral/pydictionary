@@ -1,3 +1,5 @@
+from nltk.corpus import wordnet
+
 def get_suggestions(word):
     return dictionary.suggest(word)
 

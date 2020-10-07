@@ -11,7 +11,7 @@ from .utils import web_get_records, get_suggestions
 #import enchant
 
 #dictionary = enchant.Dict("en_GB")
-#nltk.data.path.append('../nltk_data/')
+nltk.data.path.append('../nltk_data/')
 
 try:
     nltk.data.find('corpora/wordnet')

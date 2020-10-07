@@ -4,6 +4,8 @@ PyDictionary is an offline English dictionary made using Python along with the W
 
 PyDictionary is a complete project, and can be used as a full fledged offline English dictionary. Although limited, it does the same job Google search does when searched with a word.
 
+[Click here to visit PyDictionary!](https://python-dictionary.herokuapp.com/)
+
 ![Flask App UI](img/home.png)
 
 # Setting Up Environment

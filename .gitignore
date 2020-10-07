@@ -106,7 +106,7 @@ celerybeat.pid
 .venv
 env/
 venv/
-ENV/
+ENV/Updates were rejected because the tip of your current branch is behind
 env.bak/
 venv.bak/
 
@@ -119,6 +119,9 @@ venv.bak/
 
 # mkdocs documentation
 /site
+
+# VS Code
+.vscode/
 
 # mypy
 .mypy_cache/
@@ -136,3 +139,5 @@ corpora/
 # pipenv 
 Pipfile
 Pipfile.lock
+# nltk corpora
+corpora/

@@ -52,7 +52,7 @@ def web_get_records(word):
     return resp
 
 dictionary = enchant.Dict("en_GB")
-nltk.data.path.append('../nltk_data/')
+#nltk.data.path.append('../nltk_data/')
 
 try:
     nltk.data.find('corpora/wordnet')

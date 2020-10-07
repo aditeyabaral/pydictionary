@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block staticfiles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+{% endblock %}
+{% block content %}
+    <main class="container">
+        <header>
+            <h1 class="heading-title"> PyDictionary</h1>
+        </header>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+                <div class="input-field">
+                    {{ form.word(size=20,placeholder='Word to search',) }}
+                    {{form.submit()}}
+                </div>
+        </form>
+    </main>
+{% endblock %}

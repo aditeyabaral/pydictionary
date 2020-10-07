@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Balsamiq+Sans&display=swap');
-
 *{
     box-sizing: border-box;
 }
@@ -8,6 +6,7 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
     background-color:lightseagreen;
 }
 
@@ -28,24 +27,23 @@ header .heading-title{
     font-family: Tahoma, Verdana, Arial, sans-serif;;
 }
 
-header .heading-content{
-    width: 70%;
-    margin: 0 auto 2em;
-    font-family: 'Balsamiq Sans', cursive;
-    text-align: center;
-}
 
 .input-field{
     width: 40vw;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     /* height: ; */
 }
 
 .input-field .input{
-    flex-basis: 80%;
-    font-family: 'Anton',cursive;
     border: none;
-    padding-left: .5em;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.5em;
+    border-radius: 10px;
+    margin-bottom: 2em;
 }
 
 .input-field .input:focus{
@@ -54,15 +52,16 @@ header .heading-content{
 }
 
 .input-field .input-submit{
-    flex: auto;
-    height: 100%;
     border: none;
+    font-size: 1.5em;
     font-weight: bold;
     background-color: #0b6a75;
     color: #ffffff;
-    font-size: 1.5em;
+    width: 135px;
+    height: 60px;
     box-sizing: border-box;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 @media all and (max-width: 768px) {
@@ -95,11 +94,12 @@ header .heading-content{
         height: auto;
     }
 
+    .input-field{
+        width: 80vw;
+    }
+
     header .heading-title{
         font-size: 3em;
     }
 
-    header .heading-content{
-        font-size: 1em;
-    }
 }

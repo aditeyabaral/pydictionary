@@ -7,6 +7,7 @@ from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
+from utils import web_get_records, get_suggestions
 #import enchant
 
 #dictionary = enchant.Dict("en_GB")

@@ -1,17 +1,21 @@
-import enchant
 from nltk.corpus import wordnet
+from spellchecker import SpellChecker
 
-dictionary = enchant.Dict("en_GB")
+dictionary = SpellChecker()
+
 
 def get_suggestions(word):
-    return dictionary.suggest(word)
+    candidates = dictionary.candidates(word)
+    candidates = [w for w in candidates if wordnet.synsets(w)]
+    return candidates
 
 
 def web_get_records(word):
-    if not dictionary.check(word):
-        return None
     resp = ""
     syn = wordnet.synsets(word)
+    if not syn:
+        return None
+
     dform = {
         "n": "noun",
         "v": "verb",

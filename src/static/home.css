@@ -10,6 +10,12 @@ body{
     background-color:lightseagreen;
 }
 
+.fake-link {
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .container{
     width: 80%;
     height: 100vh;

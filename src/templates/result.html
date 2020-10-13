@@ -4,6 +4,13 @@
 {% endblock %}
 {% block content %}
 
+<script>
+    function change_query(elem) {
+        query = elem.innerText;
+        document.getElementById("word").value = query;
+        document.forms[0].submit.click()
+    }
+</script>
 
 <main class="container">
 
@@ -45,7 +52,7 @@
                     {% if suggestions | length > 0 %}
                         <p style="color: #699;">Maybe you are looking for:</p>
                         {% for sugg in suggestions %}
-                            <p>{{ sugg }}</p>
+                        <p class="fake-link" onclick="change_query(this)">{{ sugg }}</p>
                         {% endfor %}
                     {% endif %}
                 </div>

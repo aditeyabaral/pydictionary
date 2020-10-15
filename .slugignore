@@ -5,3 +5,4 @@ img/
 README.md
 pyDictionary.py
 requirements-dev.txt
+.gitignore

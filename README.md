@@ -23,12 +23,6 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-3. Install dev dependencies for code linting
-
-```bash
-pip install -r requirements-dev.txt
-```
-
 # How to run PyDictionary
 
 ## Runing on Command Line

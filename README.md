@@ -42,6 +42,7 @@ python3 pyDictionary.py hello
 
 ## Running Flask App
 ```bash
+cd src/
 flask run
 ```
 ![GUI](img/gui.png)

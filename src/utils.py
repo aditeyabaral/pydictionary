@@ -25,6 +25,7 @@ def web_get_records(word):
     }
     ctr1 = 1
     ctr2 = 97
+    antonyms = list()
     for i in syn[:10]:
         ctr2 = 97
         definition, examples, form = i.definition(), i.examples(), i.pos()
@@ -32,7 +33,6 @@ def web_get_records(word):
         resp = resp + dform[form] + "-" + word + "\n"
         resp = resp + "Definition : " + definition.capitalize() + "." + "\n"
         ctr1 += 1
-        antonyms = []
         if len(examples) > 0:
             resp = resp + "Usage : " + "\n"
             for j in examples:

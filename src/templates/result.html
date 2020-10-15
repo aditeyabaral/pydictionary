@@ -1,65 +1,6 @@
 {% extends "base.html" %}
-{% block staticfiles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-{% endblock %}
 {% block content %}
-
-<script>
-    function change_query(elem) {
-        query = elem.innerText;
-        document.getElementById("word").value = query;
-        document.forms[0].submit.click()
-    }
-</script>
-
-<main class="container">
-
-    <div class="research">
-        
-        <h1 class="research-title"> PyDictionary</h1>
-
-        <form class="research-form" action="" method="post" novalidate>
-            {{ form.hidden_tag() }}
-            <div class="input-field">
-                {{ form.word(size=20,placeholder='Word to search',) }}
-                {{form.submit()}}
-            </div>
-        </form>
-        
-    </div>
-    
-    <div class="results">
-        <div class="results-content">
-            {% if found %}
-                {% for word in resp %}
-                <div class="word-result-box">
-                    <p>{{ word['value'] }}</p>
-                    <div class="divider"></div>
-                    <p style="color: #699;">Part of Speech: {{ word['part_of_speech'] }}</p>
-                    <p>Definition: {{ word['definition'] }}</p>
-                    {% if word['usage'] | length > 0 %}
-                        <p>Usage: </p>
-                    {% endif %}
-                    {% for usage in word['usage'] %}
-                        <p>{{ usage }}</p>
-                    {% endfor %}
-                </div>
-                {% endfor %}
-            {% else %}
-                <div class="word-result-box">
-                    <p>Not Found.</p>
-                    <div class="divider"></div>
-                    {% if suggestions | length > 0 %}
-                        <p style="color: #699;">Maybe you are looking for:</p>
-                        {% for sugg in suggestions %}
-                        <p class="fake-link" onclick="change_query(this)">{{ sugg }}</p>
-                        {% endfor %}
-                    {% endif %}
-                </div>
-            {% endif %}
-        </div>
-    </div>
-
-</main>
-
+{% for para in resp %}
+    <p>{{para}}</p>
+{% endfor %}
 {% endblock %}

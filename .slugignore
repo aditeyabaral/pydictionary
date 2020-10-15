@@ -1,0 +1,7 @@
+src/
+.vscode/
+__pycache__/
+img/
+README.md
+pyDictionary.py
+requirements-dev.txt

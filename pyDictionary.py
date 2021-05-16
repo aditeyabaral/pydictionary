@@ -1,40 +1,44 @@
 import sys
-from typing import Any, Dict
-import enchant
 from nltk.corpus import wordnet
+from spellchecker import SpellChecker
 
-dictionary = enchant.Dict("en_GB")
+dictionary = SpellChecker()
 
 
-def get_word_from_cli():
+def getWordCLI():
     try:
         return sys.argv[1]
     except IndexError:
         print("ERROR: Bad input. You must provide a word!")
-        print("Correct usage: \033[1m python PyDictionary.py <word> \033[0m")
+        print("Correct usage: \033[1m python3 pyDictionary.py <word> \033[0m")
         sys.exit(2)
 
 
-def check_word(word):
+def checkWord(word):
     """
     Check if word exist in dictionary
 
     If not it will try to make suggestions.
     """
-    if dictionary.check(word):
+    if bool(wordnet.synsets(word)):
         return word
+
     print("Word not found in dictionary.")
-    otherwords = dictionary.suggest(word)
-    if otherwords:
-        choice = input('Did you mean "' + otherwords[0] + '" ? [y/n]')
-        if choice.upper() == "Y":
-            return otherwords[0]
-    sys.exit(2)
+    candidates = dictionary.candidates(word)
+    candidates = [w for w in candidates if wordnet.synsets(w)]
+    if candidates:
+        print(
+            f"Did you mean {candidates[0]}?\nOther possibilities include {candidates[1:]}")
+        new_word = input("Enter word: ")
+        return checkWord(new_word)
+    else:
+        print("Word not found.")
+        sys.exit(2)
 
 
-def get_records(word):
+def getRecords(word):
     """Search a word in dictionary and print its coincidences"""
-    word = check_word(word)
+    word = checkWord(word)
     syn = wordnet.synsets(word)
     dform = {
         "n": "noun",
@@ -68,6 +72,7 @@ def get_records(word):
         print("Antonyms : ")
         print(",".join(antonyms))
 
+
 if __name__ == "__main__":
-    word = get_word_from_cli()
-    get_records(word)
+    word = getWordCLI()
+    getRecords(word)

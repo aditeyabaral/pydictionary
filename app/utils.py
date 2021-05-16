@@ -4,13 +4,13 @@ from spellchecker import SpellChecker
 dictionary = SpellChecker()
 
 
-def get_suggestions(word):
+def getWordSuggestions(word):
     candidates = dictionary.candidates(word)
     candidates = [w for w in candidates if wordnet.synsets(w)]
     return candidates
 
 
-def web_get_records(word):
+def getRecords(word):
     resp = ""
     syn = wordnet.synsets(word)
     if not syn:

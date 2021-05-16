@@ -6,7 +6,7 @@ from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
-from utils import *
+from .utils import *
 
 try:
     nltk.data.find("corpora/wordnet")
@@ -36,7 +36,7 @@ def index():
     word = " "
     if form.validate_on_submit():
         word = form.word.data
-        resp = web_get_records(word)
+        resp = getRecords(word)
 
         words = []
         suggestions = []
@@ -60,7 +60,7 @@ def index():
 
                     words[loop_index]["usage"].append(res)
         else:
-            suggestions = get_suggestions(word)
+            suggestions = getWordSuggestions(word)
             pass
 
         return render_template(

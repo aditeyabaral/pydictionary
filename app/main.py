@@ -1,13 +1,12 @@
 import re
 import nltk
-from nltk.corpus import wordnet
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
-from .utils import web_get_records, get_suggestions
+from utils import *
 
 try:
     nltk.data.find("corpora/wordnet")
@@ -53,7 +52,8 @@ def index():
                     words.append({"part_of_speech": pos[0], "value": pos[1]})
                     loop_index += 1
                 elif "Definition" in res:
-                    words[loop_index]["definition"] = res.replace("Definition : ", "")
+                    words[loop_index]["definition"] = res.replace(
+                        "Definition : ", "")
                 elif match_usage_item_letter.search(res):
                     if "usage" not in words[loop_index]:
                         words[loop_index]["usage"] = []
@@ -69,7 +69,8 @@ def index():
             form=form,
             resp=words,
             found=len(words) >= 1,
-            suggestions=suggestions[:5] if len(suggestions) > 5 else suggestions,
+            suggestions=suggestions[:5] if len(
+                suggestions) > 5 else suggestions,
         )
     return render_template(
         "search.html",

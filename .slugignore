@@ -2,6 +2,7 @@ src/
 .vscode/
 __pycache__/
 img/
+pydict/
 README.md
 pyDictionary.py
 requirements-dev.txt
